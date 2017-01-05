@@ -1,0 +1,19 @@
+<h2 class="blog-post-title"><txp:permlink><txp:title /></txp:permlink></h2>
+
+<p class="blog-post-meta"><txp:posted /></p>
+
+<txp:body />
+
+<p><strong><txp:text item="author" /></strong> <span itemprop="author"><txp:author link="1" this_section="1" /></span>
+<txp:if_article_category>
+<br />
+<strong>
+Category 
+</strong>
+<span itemprop="keywords">
+<txp:if_article_category number="1"><txp:category1 title="1" link="1" /></txp:if_article_category><txp:if_article_category number="2"><txp:if_article_category number="1">, </txp:if_article_category><txp:category2 title="1" link="1" /></txp:if_article_category>
+</span>
+</txp:if_article_category>
+</p>
+
+<hr>

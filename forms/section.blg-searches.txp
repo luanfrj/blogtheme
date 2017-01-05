@@ -1,0 +1,7 @@
+<h2 class="blog-post-title"><txp:permlink><txp:title /></txp:permlink></h2>
+
+<p class="blog-post-meta"><txp:search_result_excerpt /><br />
+<small><txp:permlink><txp:permlink /></txp:permlink> &middot;
+<txp:posted /></small></p>
+
+<hr>

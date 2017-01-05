@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title><txp:page_title separator=" - " /></title>
+<meta name="description" content="<txp:page_title separator=" - " />" />
+<meta name="author" content="<txp:site_name />" />
+<meta name="generator" content="Textpattern CMS">
+
+<!-- Bootstrap Core CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<txp:css name='blog' format="link" media="" />
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+<div class="blog-masthead">
+<div class="container">
+<nav class="blog-nav">
+<txp:section_list sections="cover, blog" include_default="1" wraptag="" break="">
+<a 
+<txp:if_section name='<txp:section />'> 
+class="blog-nav-item active"
+<txp:else />
+class="blog-nav-item"
+</txp:if_section>
+href="<txp:section url="1" />"><txp:section title="1" />
+</a>
+</txp:section_list>
+</nav>
+</div>
+</div>
+
+<div class="container">
+
+<div class="blog-header">
+<h1 class="blog-title">
+<txp:site_name />
+</h1>
+<p class="lead blog-description">
+<txp:site_slogan />
+</p>
+</div>
+
+<div class="row">
+
+<div class="col-sm-8 blog-main">
+
+<div class="blog-post">
+
+<txp:if_search>
+<h1><txp:text item="search_results" /></h1>
+<txp:article searchform="blg-searches" limit="99" />
+<txp:else />
+
+<txp:if_category>
+<h1><txp:text item="category" /> <txp:category title="1" /></h1>
+<txp:article form="blg-articles" limit="5" />
+<txp:else />
+
+<txp:if_author>
+<h1><txp:text item="author" /> <txp:author /></h1>
+<txp:article form="blg-articles" limit="5" />
+<txp:else />
+
+<txp:article form="blg-article" limit="1" />
+
+</txp:if_author>
+</txp:if_category>
+
+<nav>
+<ul class="pager">
+
+<txp:variable name="more" value='<txp:newer /><txp:older />' />
+<txp:variable name="prev" value='<txp:newer />' />
+<txp:variable name="next" value='<txp:older />' />
+
+<txp:if_variable name="more" value="">
+<txp:else />
+<li class="paginator">
+<txp:if_variable name="prev" value="">
+<txp:else />
+<a rel="prev" href="<txp:newer />" title="<txp:text item="newer" />">
+<txp:text item="newer" />
+</a>
+</txp:if_variable>
+
+<txp:if_variable name="next" value="">
+<txp:else />
+<a rel="next" href="<txp:older />" title="<txp:text item="older" />">
+<txp:text item="older" />
+</a>
+</txp:if_variable>
+</li>
+</txp:if_variable>
+
+<txp:if_variable name="more" value="">
+<txp:if_variable name="next" value="">
+<p><span class="glyphicon glyphicon-phone-alt"></span> me, let's do <span class="glyphicon glyphicon-cutlery"></span></p>
+</txp:if_variable>
+</txp:if_variable>
+
+</ul>
+</nav>
+
+</txp:if_search>
+
+</div><!-- /.blog-post -->
+
+</div><!-- /.blog-main -->
+
+<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+<div class="sidebar-module sidebar-module-inset">
+
+<h4>About</h4>
+<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+<div class="sidebar-module">
+<h4>Articles</h4>
+<ol class="list-unstyled">
+<txp:article_custom limit='10' section="blog" sort="Posted desc">
+<li><a href="<txp:permlink />" title="<txp:title />" ><txp:title /></a></li>
+</txp:article>
+</ol>
+</div>
+
+<div class="sidebar-module">
+<h4>Search</h4>
+<txp:search_input form="" section="blog" label="" wraptag="p" />
+</div>
+
+</div>
+</div><!-- /.blog-sidebar -->
+
+</div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<footer class="blog-footer">
+
+<p>
+Theme by <a href="http://txpthemes.com/">TXP Themes</a>
+</p>
+
+<p>
+<span class="glyphicon glyphicon-download-alt"></span> 
+<a href="<txp:site_url />themes/txpthemes/pages/blog.txp">blog.txp</a> -   
+<a href="<txp:site_url />themes/txpthemes/styles/blog.css">blog.css</a> 
+<br />
+<span class="glyphicon glyphicon-cog"></span>  
+<a href="<txp:site_url />themes/txpthemes/forms/section.blg-article.txp">blg-article.txp</a> -  
+<a href="<txp:site_url />themes/txpthemes/forms/section.blg-articles.txp">blg-articles.txp</a> - 
+<a href="<txp:site_url />themes/txpthemes/forms/section.blg-searches.txp">blg-searches.txp</a>
+</p>
+
+<p>
+Template by <a href="http://getbootstrap.com/examples/blog/">Bootstrap</a> <small>
+licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+</small>
+</p>
+
+</footer>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
